@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+input, fieldset {
+    border: none;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.visual-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.page-body__wrapper {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+
+}
+
+.page-body__title {
+    text-align: center;
+}
+
+.page-body__span-wrapper {
+    display: flex;
+    margin: 50px auto;
+    justify-content: center;
+    gap: 40px;
+}
+
+.form__calculator-wrapper {
+    display: flex;
+}
+
+.calculation {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__calculator-wrapper {
+    border: 1px solid white;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 30px;
+    padding: 100px;
+    margin-bottom: 50px;
+}
+
+.form__elements-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-elements {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: #def1f5;
+    margin-right: 20px;
+    justify-content: space-between;
+}
+
+.input-elements [type="number"] {
+    background-color: #def1f5;
+    -webkit-appearance: none;
+    margin: 0;
+    font-size: 20px;
+}
+
+.input-elements [type="text"]:focus {
+    outline:none;
+}
+
+.sights {
+    padding: 0;
+}
+
+.sights__control {
+    position: relative;
+}
+
+.sights__control-mark {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #ded77c;
+}
+
+.sights__control-label {
+    display: inline-block;
+    font-size: 20px;
+    text-transform: none;
+    transform: translateX(40px);
+}
+
+.deposit-conditions__elem {
+    margin-bottom: 40px;
+}
+
+.calculation input {
+    background-color: #def1f5;
+    height: 40px;
+}
+
+.calculation input:nth-child(1) {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.submit-button {
+    height: 80px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid blue;
+    width: 250px;
+    border-radius: 5px;
+    color: blue;
+    font-size: 24px;
+    background: transparent;
+}
+
+.sights__control[type="checkbox"]:checked + .sights__control-mark::before {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    content: url(../image/check.svg);
+}

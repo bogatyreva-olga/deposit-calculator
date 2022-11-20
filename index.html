@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deposit-calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js"></script>
+</head>
+<body class="page-body">
+<div class="page-body__wrapper">
+    <h1 class="page-body__title">Калькулятор вкладов</h1>
+    <div class="page-body__span-wrapper">
+        <span class="page-body__span span-calculator">Калькулятор</span>
+    </div>
+    <div class="page-body__forms form">
+        <div class="form__wrapper">
+            <form action="#" class="form__calculator" method="post" enctype="multipart/form-data" autocomplete="off">
+                <div class="form__calculator-wrapper">
+                    <div class="form__elements-wrapper">
+                        <fieldset class="form__calculator-element input-elements">
+                            <label class="form__calculator-label visual-hidden" for="deposit-amount">Сумма вклада</label>
+                            <input id="deposit-amount" name="deposit-amount" type="number" placeholder="50000" min="50000" max="30000000" required>
+                        </fieldset>
+                        <fieldset class="form__calculator-element input-elements">
+                            <label class="form__calculator-label visual-hidden" for="deposit-term">Срок вклада</label>
+                            <input id="deposit-term" name="deposit-term" type="number" placeholder="3 месяца" min="3" max="24" required>
+                        </fieldset>
+                        <fieldset class="form__calculator-element sights">
+                            <ul class="sights__item">
+                                <li class="deposit-conditions__elem">
+                                    <label class="sights__control">
+                                        <input class="sights__control visual-hidden" type="checkbox" name="conditions" value="raise-rate" id="raise-rate">
+                                        <span class="sights__control-mark"></span>
+                                        <span class="sights__control-label">Повысить ставку</span>
+                                    </label>
+                                </li>
+                                <li class="deposit-conditions__elem">
+                                    <label class="sights__control">
+                                        <input class="sights__control visual-hidden" type="checkbox" name="conditions" value="raise-rate" id="deposit-with-subscription">
+                                        <span class="sights__control-mark"></span>
+                                        <span class="sights__control-label">Вклад с подпиской</span>
+                                    </label>
+                                </li>
+                                <li class="deposit-conditions__elem">
+                                    <label class="sights__control">
+                                        <input class="sights__control visual-hidden" type="checkbox" name="conditions" value="raise-rate" id="interest">
+                                        <span class="sights__control-mark"></span>
+                                        <span class="sights__control-label">Оставлять проценты</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </fieldset>
+                        <span class="form__span">Пример расчета процентов по вкладу носит исключительно информационный характер и не является публичной офертой</span>
+                    </div>
+                    <div class="form__elements-wrapper">
+                        <fieldset class="calculation">
+                            <label class="calculation__label" for="saving">Сбережения за 3 месяца</label>
+                            <input class="calculation__saving" type="number" name="saving" id="saving" disabled>
+                            <label class="calculation__label" for="profitability">Доходность, годовых</label>
+                            <input class="calculation__profitability" type="number" name="saving" id="profitability" disabled>
+                            <label class="calculation__label" for="bid">Ставка</label>
+                            <input class="calculation__profitability" type="number" name="saving" id="bid" disabled>
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
