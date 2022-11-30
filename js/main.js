@@ -17,9 +17,10 @@ let showResultDeposit = () => {
     let bid = DEFAULT_BID;
     let deposit = DEFAULT_DEPOSIT;
     let countDayDeposit = DEFAULT_COUNT_DEPOSIT_DAYS * getDepositTermElement().value;
+    console.log()
 
     if(getDepositElement().value){
-        deposit = getDepositElement().value;
+        deposit = parseInt(getDepositElement().value);
     }
 
     if (getRateIncreaseElement().checked) {
@@ -44,7 +45,8 @@ let showResultDeposit = () => {
         profitability += 0.5;
     }
 
-    let result = deposit + (deposit * bid *  countDayDeposit / 365 / 100);
+    let result = (deposit + (deposit * bid *  countDayDeposit / 365 / 100)).toFixed();
+    console.log(result)
 
     getProfitabilityElement().value = profitability;
     getBidElement().value = bid;
@@ -52,6 +54,10 @@ let showResultDeposit = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    getDepositElement().addEventListener("change", (evt) => {
+        showResultDeposit()
+    });
+
     getRateIncreaseElement().addEventListener("change", (evt) => {
         showResultDeposit()
     });
@@ -61,6 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     getSubscriptionElement().addEventListener("change", (evt) => {
+        showResultDeposit()
+    });
+
+    getDepositTermElement().addEventListener("change", (evt) => {
         showResultDeposit()
     });
 });
