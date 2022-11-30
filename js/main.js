@@ -10,6 +10,7 @@ let getProfitabilityElement = () => document.querySelector(".calculation__profit
 let getDepositTermElement = () => document.querySelector("#deposit-term");
 let getRateIncreaseElement = () => document.querySelector("#raise-rate");
 let getResultDepositElement = () => document.querySelector(".calculation__saving");
+let getSubscriptionElement = () => document.querySelector("#deposit-with-subscription");
 
 let showResultDeposit = () => {
     let profitability = DEFAULT_PROFITABILITY;
@@ -30,8 +31,17 @@ let showResultDeposit = () => {
         profitability += 0.16;
     }
 
-    if (getInterestElement().checked && !getRateIncreaseElement().checked) {
+    if (getInterestElement().checked && !getRateIncreaseElement().checked && !getSubscriptionElement().checked) {
         profitability += 0.11;
+    }
+
+    if (getInterestElement().checked && getSubscriptionElement().checked && !getRateIncreaseElement().checked) {
+        profitability += 0.14;
+    }
+
+    if (getSubscriptionElement().checked) {
+        bid += 0.5;
+        profitability += 0.5;
     }
 
     let result = deposit + (deposit * bid *  countDayDeposit / 365 / 100);
@@ -47,6 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     getInterestElement().addEventListener("change", (evt) => {
+        showResultDeposit()
+    });
+
+    getSubscriptionElement().addEventListener("change", (evt) => {
         showResultDeposit()
     });
 });
