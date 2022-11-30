@@ -119,8 +119,11 @@ li {
 }
 
 .calculation input {
-    background-color: #def1f5;
-    height: 40px;
+    height: 60px;
+    width: 120px;
+    font-size: 19px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .calculation input:nth-child(1) {
@@ -141,7 +144,7 @@ li {
     background: transparent;
 }
 
-.sights__control[type="checkbox"]:checked + .sights__control-mark::before {
+.sights__control-input:checked + .sights__control-mark::before {
     position: absolute;
     top: 5px;
     left: 5px;
