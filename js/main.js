@@ -45,7 +45,7 @@ let showResultDeposit = () => {
         profitability += 0.5;
     }
 
-    let result = (deposit + (deposit * bid *  countDayDeposit / 365 / 100)).toFixed();
+    let result = (deposit + (deposit * profitability *  countDayDeposit / 365 / 100)).toFixed();
     console.log(result)
 
     getProfitabilityElement().value = profitability;
