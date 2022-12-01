@@ -77,6 +77,7 @@ li {
     background-color: #def1f5;
     margin-right: 20px;
     justify-content: space-between;
+    border-radius: 5px;
 }
 
 .input-elements [type="number"] {
@@ -84,6 +85,15 @@ li {
     -webkit-appearance: none;
     margin: 0;
     font-size: 20px;
+    height: 100%;
+    outline: none;
+}
+
+
+.input-elements [type="number"]::-webkit-outer-spin-button,
+.input-elements [type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
 }
 
 .input-elements [type="text"]:focus {
@@ -104,7 +114,7 @@ li {
     left: 0;
     width: 30px;
     height: 30px;
-    background-color: #ded77c;
+    background-color: #def1f5;
 }
 
 .sights__control-label {
@@ -146,7 +156,23 @@ li {
 
 .sights__control-input:checked + .sights__control-mark::before {
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 0;
+    left: 0;
     content: url(../image/check.svg);
+    background-color: #ded77c;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+.sights__control-mark {
+    border-radius: 5px;
+}
+
+.input-elements__wrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
 }

@@ -17,7 +17,68 @@ let showResultDeposit = () => {
     let bid = DEFAULT_BID;
     let deposit = DEFAULT_DEPOSIT;
     let countDayDeposit = DEFAULT_COUNT_DEPOSIT_DAYS * getDepositTermElement().value;
-    console.log()
+
+    if (getDepositTermElement().value >= 6) {
+        bid += 0.5;
+        profitability +=0.5;
+    }
+
+    if (getDepositTermElement().value >= 18 && getRateIncreaseElement().checked) {
+        bid += 0.5;
+        profitability += 0.5;
+    }
+
+    if (getDepositTermElement().value >= 6 && getInterestElement().checked) {
+        profitability += 0.03;
+    }
+
+    if (getDepositTermElement().value >= 13 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
+
+    if (getDepositTermElement().value >= 14 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
+
+    if (getDepositTermElement().value >= 15 && getInterestElement().checked) {
+        profitability += 0.02;
+    }
+
+    if (getDepositTermElement().value >= 16 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
+
+    if (getDepositTermElement().value >= 17 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
+
+    if (getDepositTermElement().value >= 19 && getInterestElement().checked) {
+        profitability += 0.02;
+    }
+
+    if (getDepositTermElement().value >= 18 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
+
+    if (getDepositTermElement().value >= 20 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
+
+    if (getDepositTermElement().value >= 21 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
+
+    if (getDepositTermElement().value >= 22 && getInterestElement().checked) {
+        profitability += 0.02;
+    }
+
+    if (getDepositTermElement().value >= 23 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
+
+    if (getDepositTermElement().value >= 24 && getInterestElement().checked) {
+        profitability += 0.01;
+    }
 
     if(getDepositElement().value){
         deposit = parseInt(getDepositElement().value);
@@ -29,7 +90,7 @@ let showResultDeposit = () => {
     }
 
     if (getInterestElement().checked && getRateIncreaseElement().checked) {
-        profitability += 0.16;
+        profitability += 0.19;
     }
 
     if (getInterestElement().checked && !getRateIncreaseElement().checked && !getSubscriptionElement().checked) {
@@ -45,10 +106,10 @@ let showResultDeposit = () => {
         profitability += 0.5;
     }
 
-    let result = (deposit + (deposit * profitability *  countDayDeposit / 365 / 100)).toFixed();
+    let result = (deposit + (deposit * profitability *  countDayDeposit / 364 / 100)).toFixed();
     console.log(result)
 
-    getProfitabilityElement().value = profitability;
+    getProfitabilityElement().value = profitability.toFixed(2);
     getBidElement().value = bid;
     getResultDepositElement().value = result;
 }
