@@ -1,4 +1,4 @@
-const DEFAULT_DEPOSIT = 50000;
+const DEFAULT_DEPOSIT = 10000000;
 const DEFAULT_PROFITABILITY = 5;
 const DEFAULT_BID = 5;
 const DEFAULT_COUNT_DEPOSIT_DAYS = 30;
@@ -12,6 +12,22 @@ let getRateIncreaseElement = () => document.querySelector("#raise-rate");
 let getResultDepositElement = () => document.querySelector(".calculation__saving");
 let getSubscriptionElement = () => document.querySelector("#deposit-with-subscription");
 
+const interestProfit = {
+     6: 0.03,
+    13: 0.04,
+    14: 0.05,
+    15: 0.07,
+    16: 0.08,
+    17: 0.09,
+    18: 0.1,
+    19: 0.12,
+    20: 0.13,
+    21: 0.14,
+    22: 0.16,
+    23: 0.17,
+    24: 0.18
+}
+
 let showResultDeposit = () => {
     let profitability = DEFAULT_PROFITABILITY;
     let bid = DEFAULT_BID;
@@ -20,56 +36,12 @@ let showResultDeposit = () => {
 
     if (getDepositTermElement().value >= 6) {
         bid += 0.5;
-        profitability +=0.5;
+        profitability += 0.5;
     }
 
     if (getDepositTermElement().value >= 18 && getRateIncreaseElement().checked) {
         bid += 0.5;
         profitability += 0.5;
-    }
-
-    if (getDepositTermElement().value >= 6 && getInterestElement().checked) {
-        profitability += 0.03;
-    }
-
-    if (getDepositTermElement().value >= 13 && getInterestElement().checked) {
-        profitability += 0.01;
-    }
-
-    if (getDepositTermElement().value >= 14 && getInterestElement().checked) {
-        profitability += 0.01;
-    }
-
-    if (getDepositTermElement().value >= 15 && getInterestElement().checked) {
-        profitability += 0.02;
-    }
-
-    if (getDepositTermElement().value >= 16 && getInterestElement().checked) {
-        profitability += 0.01;
-    }
-
-    if (getDepositTermElement().value >= 17 && getInterestElement().checked) {
-        profitability += 0.01;
-    }
-
-    if (getDepositTermElement().value >= 19 && getInterestElement().checked) {
-        profitability += 0.02;
-    }
-
-    if (getDepositTermElement().value >= 18 && getInterestElement().checked) {
-        profitability += 0.01;
-    }
-
-    if (getDepositTermElement().value >= 20 && getInterestElement().checked) {
-        profitability += 0.01;
-    }
-
-    if (getDepositTermElement().value >= 21 && getInterestElement().checked) {
-        profitability += 0.01;
-    }
-
-    if (getDepositTermElement().value >= 22 && getInterestElement().checked) {
-        profitability += 0.02;
     }
 
     if (getDepositTermElement().value >= 23 && getInterestElement().checked) {
@@ -80,13 +52,13 @@ let showResultDeposit = () => {
         profitability += 0.01;
     }
 
-    if(getDepositElement().value){
+    if (getDepositElement().value) {
         deposit = parseInt(getDepositElement().value);
     }
 
     if (getRateIncreaseElement().checked) {
         bid += 1;
-        profitability +=1;
+        profitability += 1;
     }
 
     if (getInterestElement().checked && getRateIncreaseElement().checked) {
@@ -106,7 +78,7 @@ let showResultDeposit = () => {
         profitability += 0.5;
     }
 
-    let result = (deposit + (deposit * profitability *  countDayDeposit / 364 / 100)).toFixed();
+    let result = (deposit + (deposit * profitability * countDayDeposit / 364 / 100)).toFixed();
     console.log(result)
 
     getProfitabilityElement().value = profitability.toFixed(2);
@@ -115,23 +87,25 @@ let showResultDeposit = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    getDepositElement().addEventListener("change", (evt) => {
+    showResultDeposit();
+
+    getDepositElement().addEventListener("change", () => {
         showResultDeposit()
     });
 
-    getRateIncreaseElement().addEventListener("change", (evt) => {
+    getRateIncreaseElement().addEventListener("change", () => {
         showResultDeposit()
     });
 
-    getInterestElement().addEventListener("change", (evt) => {
+    getInterestElement().addEventListener("change", () => {
         showResultDeposit()
     });
 
-    getSubscriptionElement().addEventListener("change", (evt) => {
+    getSubscriptionElement().addEventListener("change", () => {
         showResultDeposit()
     });
 
-    getDepositTermElement().addEventListener("change", (evt) => {
+    getDepositTermElement().addEventListener("change", () => {
         showResultDeposit()
     });
 });
