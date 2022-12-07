@@ -89,25 +89,15 @@ let showResultDeposit = () => {
 document.addEventListener('DOMContentLoaded', () => {
     showResultDeposit();
 
-    getDepositElement().addEventListener("change", () => {
-        showResultDeposit()
-    });
+    getDepositElement().addEventListener("change", showResultDeposit);
 
-    getRateIncreaseElement().addEventListener("change", () => {
-        showResultDeposit()
-    });
+    getRateIncreaseElement().addEventListener("change", showResultDeposit);
 
-    getInterestElement().addEventListener("change", () => {
-        showResultDeposit()
-    });
+    getInterestElement().addEventListener("change", showResultDeposit);
 
-    getSubscriptionElement().addEventListener("change", () => {
-        showResultDeposit()
-    });
+    getSubscriptionElement().addEventListener("change", showResultDeposit);
 
-    getDepositTermElement().addEventListener("change", () => {
-        showResultDeposit()
-    });
+    getDepositTermElement().addEventListener("change", showResultDeposit);
 });
 
 
