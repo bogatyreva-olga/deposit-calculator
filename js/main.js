@@ -12,20 +12,22 @@ let getRateIncreaseElement = () => document.querySelector("#raise-rate");
 let getResultDepositElement = () => document.querySelector(".calculation__saving");
 let getSubscriptionElement = () => document.querySelector("#deposit-with-subscription");
 
-const interestProfit = {
-     6: 0.03,
-    13: 0.04,
-    14: 0.05,
-    15: 0.07,
-    16: 0.08,
-    17: 0.09,
-    18: 0.1,
-    19: 0.12,
-    20: 0.13,
-    21: 0.14,
-    22: 0.16,
-    23: 0.17,
-    24: 0.18
+const getInterestProfit = (month) => {
+    month = parseInt(month)
+    if (month <= 6) {
+        return 0
+    }
+    if (month <= 12) {
+        return 0.53
+    }
+    let result = month - 9;
+    if (result <= 9) {
+        return parseFloat("0.0" + result)
+    }
+    if (result > 9) {
+        return parseFloat("0." + result)
+    }
+
 }
 
 let showResultDeposit = () => {
@@ -33,6 +35,8 @@ let showResultDeposit = () => {
     let bid = DEFAULT_BID;
     let deposit = DEFAULT_DEPOSIT;
     let countDayDeposit = DEFAULT_COUNT_DEPOSIT_DAYS * getDepositTermElement().value;
+
+    let interestProfit = getInterestProfit(getDepositTermElement().value);
 
     if (getDepositTermElement().value >= 6) {
         bid += 0.5;
@@ -76,6 +80,10 @@ let showResultDeposit = () => {
     if (getSubscriptionElement().checked) {
         bid += 0.5;
         profitability += 0.5;
+    }
+
+    if (getInterestElement().checked) {
+        profitability += interestProfit;
     }
 
     let result = (deposit + (deposit * profitability * countDayDeposit / 364 / 100)).toFixed();
